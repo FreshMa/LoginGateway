@@ -9,7 +9,6 @@ def login():
         login_form={'DDDDD':'上网账号','upass':'上网密码','0MKKey':''}
         s.post(gateAdd,login_form)
         print 'login successfully, the account is %s'%login_form['DDDDD']
-        print
     else:
         print 'already login,the account is %s'%login_form['DDDDD']
 
