@@ -4,9 +4,9 @@ s = requests.Session()
 gateAdd = 'http://10.3.8.211'
 def login():
     st = check()
+     #需要输入自己的帐号和密码
+    login_form={'DDDDD':'上网账号','upass':'上网密码','0MKKey':''}
     if st == 'out':
-        #需要输入自己的帐号和密码
-        login_form={'DDDDD':'上网账号','upass':'上网密码','0MKKey':''}
         s.post(gateAdd,login_form)
         print 'login successfully, the account is %s'%login_form['DDDDD']
     else:
