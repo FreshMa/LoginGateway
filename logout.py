@@ -1,15 +1,16 @@
 import requests
+import time
 
-s = requests.Session()
-r = s.get('http://10.3.8.211')
-conLen = r.headers['content-length']
-iLen = int(conLen)
-if iLen<5000:
-    requests.get('http://10.3.8.211/F.htm')
-    print 'logout!'
-else:
-    print 'already out'
+def logout():
+    s = requests.Session()
+    r = s.get('http://10.3.8.211')
+    conLen = r.headers['content-length']
+    iLen = int(conLen)
+    if iLen<5000:
+        requests.get('http://10.3.8.211/F.htm')
+        print 'logout successfully!'
+    else:
+        print 'already out'
 
-input()
-
-
+logout()
+time.sleep(1)
