@@ -1,4 +1,6 @@
 
+# -*-coding:utf-8 -*-
+
 from bs4 import BeautifulSoup
 import lxml
 import requests
@@ -20,15 +22,29 @@ def login():
         print 'already login,the account is %s'%login_form['DDDDD']
         displayInfo()
 
+ #检测是否处于登录状态，抓包发现未登录前header的content-length属性的值大于5000，登录之后小于5000，故据此来判断
 def checkOnline():
     r = s.get(gateAdd)
-     #检测是否处于登录状态，抓包发现未登录前header的content-length属性的值大于5000，登录之后小于5000，故据此来判断
     conLen = r.headers['content-length']
     iLen = int(conLen)
     if iLen<5000:
         status = 'on'
     else:
         status = 'out'
+    return status
+
+#检测是否处于登录状态，通过网页的title来判断，更加准确
+def checkOnline2():
+    r = s.get(gateAdd)
+    r.encoding = 'GBK'
+    html = r.text
+    soup = BeautifulSoup(html,'lxml')
+    title = soup.title.string
+    logStr = u'上网注销窗'
+    if cmp(title,logStr):
+        status = 'out'
+    else:
+        status = 'on'
     return status
 
 def displayInfo():
