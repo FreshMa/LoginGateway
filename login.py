@@ -71,11 +71,16 @@ def displayInfo():
     #小数部分
     flow0 = flow0/1024
 
-    flowStr = 'The used traffic is %d.%d MB'%(flow1,flow0)
-    timeStr = 'The used time is %s Min'%time
+    #拼接流量字符串
+    flow1Str = str(flow1)
+    flow0Str = str(flow0)
+    flowStr = flow0Str+'.'+flow0Str
+    #输出格式控制（右对齐）
+    flowInfo = 'The used traffic is: %+7s MB'%flowStr
+    timeInfo = 'The used time is: %+10s Min'%time
 
-    print timeStr
-    print flowStr
+    print timeInfo
+    print flowInfo
     
 login()
 #命令行界面延迟一秒消失
