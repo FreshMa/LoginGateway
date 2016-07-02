@@ -74,7 +74,7 @@ def displayInfo():
     #拼接流量字符串
     flow1Str = str(flow1)
     flow0Str = str(flow0)
-    flowStr = flow0Str+'.'+flow0Str
+    flowStr = flow1Str+'.'+flow0Str
     #输出格式控制（右对齐）
     flowInfo = 'The used traffic is: %+7s MB'%flowStr
     timeInfo = 'The used time is: %+10s Min'%time
