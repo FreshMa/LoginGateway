@@ -64,7 +64,7 @@ def displayInfo():
     #根据js中的计算方法计算流量，将byte转为Mbyte
     flow0 = flow%1024
     flow1 = flow-flow0
-    flow0 = flow0*1024
+    flow0 = flow0*1000
     flow0 = flow0-flow0%1024
     #整数部分
     flow1 = flow1/1024
