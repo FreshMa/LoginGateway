@@ -15,7 +15,7 @@ gateAdd = 'http://10.3.8.211'
 def login():
     st = checkOnline2()
     #需要输入自己的帐号和密码
-    login_form={'DDDDD':'2011212063','upass':'286036','0MKKey':''}
+    login_form={'DDDDD':'帐号','upass':'密码','0MKKey':''}
     if st == 'out': 
         s.post(gateAdd,login_form)
         print u'登录成功，帐号为 %s'%login_form['DDDDD']
