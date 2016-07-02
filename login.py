@@ -11,7 +11,7 @@ s = requests.Session()
 #宿舍网关，该脚本只考虑了这种情况，在图书馆或者教室的网关不一样，所以就不能使用了
 gateAdd = 'http://10.3.8.211'
 def login():
-    st = checkOnline()
+    st = checkOnline2()
     #需要输入自己的帐号和密码
     login_form={'DDDDD':'上网账号','upass':'上网密码','0MKKey':''}
     if st == 'out': 
@@ -36,6 +36,7 @@ def checkOnline():
 #检测是否处于登录状态，通过网页的title来判断，更加准确
 def checkOnline2():
     r = s.get(gateAdd)
+    #防止中文网页乱码
     r.encoding = 'GBK'
     html = r.text
     soup = BeautifulSoup(html,'lxml')
