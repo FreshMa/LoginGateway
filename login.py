@@ -10,8 +10,9 @@ import time
 
 
 s = requests.Session()
-#宿舍网关，该脚本只考虑了这种情况，在图书馆或者教室的网关不一样，所以就不能使用了
+#宿舍、图书馆网关均可，改一下网关地址即可
 gateAdd = 'http://10.3.8.211'
+#gateAdd = 'http://10.4.1.2'
 def login():
     st = checkOnline2()
     #需要输入自己的帐号和密码
@@ -65,8 +66,8 @@ def displayInfo():
     script = soup.find_all('script')[0].string
     #将该script脚本分行切割，发现第二行包含了我们需要的使用情况信息，故保存
     infoStr = script.splitlines()[1]
-    #使用正则匹配出使用时间以及流量等信息
-    m = re.match(r'^time=\'(\d*)\s*\';flow=\'(\d*)\s*\'.*fee=\'(\d*)\s*\'.*',infoStr)
+    #使用正则匹配出使用时间以及流量等信息，开头.*为了匹配10.4.1.2
+    m = re.match(r'^.*time=\'(\d*)\s*\';flow=\'(\d*)\s*\'.*fee=\'(\d*)\s*\'.*',infoStr)
     time = m.group(1)
     flow = int(m.group(2))
     fee = int(m.group(3))
