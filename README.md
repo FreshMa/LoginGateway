@@ -5,3 +5,19 @@
 ## 网关如下：
 + 宿舍         http://10.3.8.211   
 + 图书馆、教室 http://10.4.1.2     
+
+## 核心代码就几句：
++ 登录：
+    import requests
+    gateAdd = 'http://10.3.8.211'
+    #图书馆等
+    #gateAdd = 'http://10.4.1.2'
+    login_form={'DDDDD':'帐号','upass':'密码','0MKKey':''}
+    s.post(gateAdd,login_form)
++ 登出：
+    import requests
+    gateAdd = 'http://10.3.8.211'
+    #图书馆等
+    #gateAdd = 'http://10.4.1.2'
+    suf = '/F.htm'
+    requests.get(gateAdd+suf)
