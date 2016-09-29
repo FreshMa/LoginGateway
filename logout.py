@@ -4,7 +4,8 @@ from bs4 import BeautifulSoup
 import time
 
 def logout():
-    gateAdd = 'http://10.4.1.2'
+    gateAdd = 'http://10.3.8.211'
+    #gateAdd = 'http://10.4.1.2'
     suf = '/F.htm'
     s = requests.Session()
     r = s.get(gateAdd)
