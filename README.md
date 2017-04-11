@@ -13,7 +13,7 @@
     #图书馆等
     #gateAdd = 'http://10.4.1.2'
     login_form={'DDDDD':'帐号','upass':'密码','0MKKey':''}
-    s.post(gateAdd,login_form)
+    requests.post(gateAdd,login_form)
     # 登出：
     import requests
     gateAdd = 'http://10.3.8.211'
