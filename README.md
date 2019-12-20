@@ -7,6 +7,7 @@
 + 图书馆、教室 http://10.4.1.2     
 
 ## 核心代码就几句：
+```python
     # 登录：
     import requests
     gateAdd = 'http://10.3.8.211'
@@ -14,6 +15,8 @@
     #gateAdd = 'http://10.4.1.2'
     login_form={'DDDDD':'帐号','upass':'密码','0MKKey':''}
     requests.post(gateAdd,login_form)
+```
+```python
     # 登出：
     import requests
     gateAdd = 'http://10.3.8.211'
@@ -21,3 +24,4 @@
     #gateAdd = 'http://10.4.1.2'
     suf = '/F.htm'
     requests.get(gateAdd+suf)
+```
